@@ -13,3 +13,9 @@ A web-based app for learning Linux commands and distros
 - Browse common Linux commands
 - Learn about popular Linux distros
 - Clean and simple interface
+
+## Preview
+
+<p align="center">
+  <img src="images/screenshot.jpg" alt="App Screenshot" width="700"/>
+</p>
