@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Title and logo on page top -->
+  <title>Linux Commands | LinuxWeb</title>
+  <link rel="icon" type="image/png" href="images/linux-logo.png"> 
+
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <nav class="navbar">
+  <!-- Site display name -->
+      <h1 class="logo">LinuxWeb</h1>
+  <!-- Navigation -->
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="distros.html">Distros</a></li>
+        <li><a href="commands.html">Commands</a></li>
+        <li><a href="tips.html">Tips</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Introductory banner section at the top of the commands page -->
+  <section class="page-hero">
+    <h2>Linux Commands</h2>
+    <p>
+      Learn the most useful Linux terminal commands.
+    </p>
+  </section>
+
+  <!-- Clickable command cards that display a description in the info box below -->
+  <section class="commands-section">
+    <div class="commands-grid">
+
+      <!-- Card: ls -->
+      <div
+        class="command-card"
+        onclick="showCommandInfo('ls command shows files and folders inside current directory.')"
+      >
+        <h3>ls</h3>
+      </div>
+
+      <!-- Card: cd -->
+      <div
+        class="command-card"
+        onclick="showCommandInfo('cd command changes current directory.')"
+      >
+        <h3>cd</h3>
+      </div>
+
+      <!-- Card: pwd -->      
+      <div
+        class="command-card"
+        onclick="showCommandInfo('pwd command shows current directory path.')"
+      >
+        <h3>pwd</h3>
+      </div>
+
+      <!-- Card: mkdir -->
+      <div
+        class="command-card"
+        onclick="showCommandInfo('mkdir command creates new directory.')"
+      >
+        <h3>mkdir</h3>
+      </div>
+
+      <!-- Card: rm -->
+      <div
+        class="command-card"
+        onclick="showCommandInfo('rm command removes files or folders.')"
+      >
+        <h3>rm</h3>
+      </div>
+
+      <!-- Card: touch -->
+      <div
+        class="command-card"
+        onclick="showCommandInfo('touch command creates empty file.')"
+      >
+        <h3>touch</h3>
+      </div>
+
+    </div>
+
+    <!-- Dynamically updated by showCommandInfo() when a card is clicked -->
+    <div class="info-box">
+      <h3>Command Description</h3>
+      <p id="command-info">
+        Click any command to see description.
+      </p>
+    </div>
+
+  </section>
+
+  <!-- A static decorative terminal window showing example command output -->
+  <section class="terminal-section">
+    <div class="terminal">
+      <div class="terminal-top">
+        <span></span> <!-- Red / close button dot -->
+        <span></span> <!-- Yellow / minimize button dot -->
+        <span></span> <!-- Green / maximize button dot -->
+      </div>
+
+      <!-- Terminal body displaying sample Linux commands and their output -->
+      <div class="terminal-body">
+        <p>$ ls</p>
+        <p>Documents Downloads Music Pictures</p>
+        <p>$ pwd</p>
+        <p>/home/linuxweb</p>
+      </div>
+
+    </div>
+  </section>
+  <!-- HTML renders before JS executes -->1
+  <script src="js/script.js"></script>
+
+</body>
+</html>

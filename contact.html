@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Title and logo on page top -->
+  <title>LinuxWeb | Contact</title>
+  <link rel="icon" type="image/png" href="images/linux-logo.png">
+  
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <nav class="navbar">
+  <!-- Site display name -->
+      <h1 class="logo">LinuxWeb</h1>
+  <!-- Navigation -->
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="distros.html">Distros</a></li>
+        <li><a href="commands.html">Commands</a></li>
+        <li><a href="tips.html">Tips</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Introductory banner section at the top of the contact page -->
+  <section class="page-hero">
+    <h2>Contact Us</h2>
+    <p>
+      Send feedback or ask Linux-related questions.
+    </p>
+  </section>
+
+  <!-- Contains the contact form wrapped in a styled section -->
+  <section class="contact-section">
+    <!-- Form element — id="contactForm" is targeted by script.js
+    to handle the submit event and prevent page refresh -->
+    <form class="contact-form" id="contactForm">
+      <!-- Groups all related inputs together visually and semantically -->
+      <fieldset>
+        <!-- Legend acts as the title label displayed on the fieldset border -->
+        <legend>LinuxWeb Contact Form</legend>
+        <!-- Name field-->
+        <label for="name">Full Name</label>
+        <input
+          type="text"
+          id="name"
+          name="name"
+          placeholder="Enter your full name"
+          required
+        >
+
+        <!-- Email field -->
+        <label for="email">Email Address</label>
+        <input
+          type="email"
+          id="email"
+          name="email"
+          placeholder="Enter your email"
+          required
+        >
+        <!-- Topic field (optional) -->
+        <label for="topic">Topic</label>
+        <input
+          type="text"
+          id="topic"
+          name="topic"
+          placeholder="Linux, Commands, Distros..."
+        >
+
+        <!-- Message field -->
+        <label for="message">Message</label>
+        <textarea
+          id="message"
+          name="message"
+          placeholder="Write your message..."
+          rows="6"
+          required
+        ></textarea>
+
+        <!-- Button triggers the form submit event listened to in script.js -->
+        <button type="submit">
+          Send Message
+        </button>
+
+      </fieldset>
+    </form>
+
+  </section>
+  <!-- HTML renders before JS executes -->
+  <script src="js/script.js"></script>
+
+</body>
+</html>
