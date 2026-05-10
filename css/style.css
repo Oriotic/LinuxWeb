@@ -470,7 +470,8 @@ body {
 
    /* Moves all circles to align with the left-side line */
   .timeline-item::before {
-    left: 10px;
+    left: 10px !important;
+    right: auto;
   }
 }
 
