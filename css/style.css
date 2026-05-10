@@ -54,6 +54,17 @@ body {
   color: #e67e22;
 }
 
+/* Navigation bar for smaller screen
+   So the navigation bar won't be stuck */
+@media (max-width: 768px) {
+  .navbar {
+    position: relative;
+    padding: 15px 20px;
+    flex-direction: column;
+    gap: 15px;
+  }
+}
+
 /* =========================Index.html========================= */
 
 .hero {
