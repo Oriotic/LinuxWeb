@@ -1,0 +1,574 @@
+/* box-sizing so padding doesn't affect element width */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Body applied globally across all pages */
+body {
+  font-family: Arial, sans-serif;
+  background: #f7f1e3;
+  color: #2f3640;
+  line-height: 1.6;
+}
+
+/* Navbar top navigation bar that stays visible while scrolling */
+.navbar {
+  position: fixed; /* Sticks to the top of the viewport */
+  top: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-between; /* Logo left, links right */
+  align-items: center;
+  padding: 20px 60px;
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  z-index: 1000; /* Ensures navbar sits above all other elements */
+}
+
+/* Site brand name */
+.logo {
+  font-size: 30px;
+  color: #e67e22;
+}
+
+/* Navavigation link list */
+.nav-links {
+  display: flex;
+  list-style: none;
+  gap: 30px;
+}
+
+/* Individual nav link styles */
+.nav-links a {
+  text-decoration: none;
+  color: #2f3640;
+  font-size: 18px;
+  transition: 0.3s; /* Smooth color change on hover */
+}
+
+/* Highlights active/hovered nav link in orange */
+.nav-links a:hover {
+  color: #e67e22;
+}
+
+/* Navigation bar for smaller screen
+   So the navigation bar won't be stuck */
+@media (max-width: 768px) {
+  .navbar {
+    position: relative;
+    padding: 15px 20px;
+    flex-direction: column;
+    gap: 15px;
+  }
+}
+
+/* =========================Index.html========================= */
+
+.hero {
+  height: 100vh; /* Takes up the full screen height */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 20px;
+
+  /* Warm tinted overlay on top of background image */
+  background:
+    linear-gradient(
+      rgba(247, 241, 227, 0.8),
+      rgba(247, 241, 227, 0.8)
+    ),
+    url("../images/linux-bg.png");
+
+  background-size: cover;
+  background-position: center;
+}
+
+/* Constrains hero text width and applies fade-in animation */
+.hero-text {
+  max-width: 700px;
+  animation: fadeIn 2s ease; /* Defined in the @keyframes block below */
+}
+
+.hero h2 {
+  font-size: 60px;
+  margin-bottom: 20px;
+}
+
+.hero p {
+  font-size: 20px;
+  margin-bottom: 30px;
+}
+
+/* Call-to-action button inside the hero section */
+.hero-btn {
+  padding: 15px 35px;
+  border: none;
+  border-radius: 30px; /* Fully rounded pill shape */
+  background: #e67e22;
+  color: white;
+  font-size: 18px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+/* Darkens background and lifts button upward on hover */
+.hero-btn:hover {
+  background: #d35400;
+  transform: translateY(-5px);
+}
+
+/* Section introducing what Linux is via three feature cards */
+.about {
+  padding: 100px 60px;
+}
+
+/* Centered section heading with an orange underline accent */
+.section-title {
+  text-align: center;
+  font-size: 42px;
+  margin-bottom: 60px;
+  position: relative; /* Required for the ::after pseudo-element */
+}
+
+/* Decorative orange underline below the section title */
+.section-title::after {
+  content: "";
+  width: 120px;
+  height: 4px;
+  background: #e67e22;
+  display: block;
+  margin: 10px auto; /* Centers the underline below the title */
+}
+
+/* Three-column grid of feature cards */
+.about-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+}
+
+/* Individual feature card */
+.card {
+  background: white;
+  padding: 30px;
+  border-radius: 20px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  transition: 0.4s;
+}
+
+/* Lifts card upward on hover */
+.card:hover {
+  transform: translateY(-10px);
+}
+
+/* Orange card heading */
+.card h3 {
+  margin-bottom: 15px;
+  color: #e67e22;
+}
+
+/* Animation used on hero text and timeline items  */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive reduces hero heading size */
+@media (max-width: 900px) {
+  .about-container {
+    grid-template-columns: 1fr;
+  }
+  .navbar {
+    flex-direction: column;
+    gap: 20px;
+    padding: 20px;
+  }
+  .hero h2 {
+    font-size: 42px;
+  }
+}
+
+/* Further reduces nav links and hero text size for small screens */
+@media (max-width: 600px) {
+  .nav-links {
+    flex-direction: column;
+    align-items: center;
+  }
+  .hero h2 {
+    font-size: 32px;
+  }
+  .hero p {
+    font-size: 16px;
+  }
+}
+
+/* Reusable hero banner used at the top of inner pages */
+.page-hero {
+  padding-top: 150px;
+  padding-bottom: 80px;
+  text-align: center;
+}
+
+.page-hero h2 {
+  font-size: 52px;
+  margin-bottom: 15px;
+}
+
+.page-hero p {
+  font-size: 20px;
+}
+
+/* =========================commands.html========================= */
+
+.commands-section {
+  padding: 50px 60px;
+}
+
+/* Three-column grid of command cards */
+.commands-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 25px;
+}
+
+/* Individual clickable card representing a Linux command */
+.command-card {
+  background: white;
+  padding: 40px;
+  text-align: center;
+  border-radius: 20px;
+  cursor: pointer;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+  transition: 0.3s;
+}
+
+/* Scales card up and changes background on hover */
+.command-card:hover {
+  transform: scale(1.05);
+  background: #fff4e6;
+}
+
+/* Large orange command name inside each card */
+.command-card h3 {
+  font-size: 32px;
+  color: #e67e22;
+}
+
+/* Info Box content updated dynamically by showCommandInfo() in script.js */
+.info-box {
+  margin-top: 50px;
+  background: white;
+  padding: 30px;
+  border-left: 5px solid #e67e22;
+  border-radius: 15px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.info-box h3 {
+  margin-bottom: 15px;
+}
+
+/* Decorative terminal */
+.terminal-section {
+  padding: 80px 60px;
+}
+
+/* Dark terminal window container */
+.terminal {
+  background: #2f3640;
+  border-radius: 20px;
+  overflow: hidden; /* Keeps top bar corners rounded */
+  box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+}
+
+/* Light gray top bar of the terminal window */
+.terminal-top {
+  background: #dcdde1;
+  padding: 15px;
+  display: flex;
+  gap: 10px;
+}
+
+/* Decorative orange dots mimicking window control buttons */
+.terminal-top span {
+  width: 15px;
+  height: 15px;
+  border-radius: 50%; /* Makes spans into circles */
+  background: #e67e22;
+}
+
+/* Terminal text area with monospace font and light text */
+.terminal-body {
+  padding: 30px;
+  color: #f5f6fa;
+  font-family: monospace;
+  line-height: 2;
+}
+
+/* Stacks command cards into a single column on smaller screens  */
+@media (max-width: 900px) {
+  .commands-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* =========================distros.html========================= */
+
+.distros-section {
+  padding: 50px 60px 100px;
+}
+
+/* Three-column grid of distro cards */
+.distros-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+}
+
+/* Individual card displaying a distro logo, name and description*/
+.distro-card {
+  background: white;
+  padding: 30px;
+  text-align: center;
+  border-radius: 20px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+  transition: 0.4s;
+}
+
+/* Lifts distro card upward on hover */
+.distro-card:hover {
+  transform: translateY(-10px);
+}
+
+/* Distro logo image — fixed size with contained fit */
+.distro-card img {
+  width: 100px;
+  height: 100px;
+  object-fit: contain; /* Keeps logo proportions without cropping */
+  margin-bottom: 20px;
+}
+
+/* Orange distro name heading */
+.distro-card h3 {
+  margin-bottom: 15px;
+  color: #e67e22;
+}
+
+/* Stacks distro cards into a single column on smaller screens */
+@media (max-width: 900px) {
+  .distros-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* =========================tips.html========================= */
+
+.tips-section {
+  padding: 50px 60px 100px;
+}
+
+/* Centered wrapper that holds all timeline items */
+.timeline {
+  position: relative;
+  max-width: 900px;
+  margin: auto;
+}
+
+/* Vertical orange center line running through the entire timeline */
+.timeline::before {
+  content: "";
+  position: absolute;
+  left: 50%; /* Centered horizontally */
+  width: 4px;
+  height: 100%;
+  background: #e67e22;
+  transform: translateX(-50%); /* Precise center alignment */
+}
+
+/* Each tip occupies half the timeline width, alternating sides */
+.timeline-item {
+  position: relative;
+  width: 50%; /* Each item takes up half the container */
+  padding: 20px 40px;
+  animation: fadeIn 1s ease; /* Fades in when page loads */
+}
+
+/* Odd items appear on the left side of the timeline */
+.timeline-item:nth-of-type(odd) {
+  left: 0;
+}
+
+/* Even items appear on the right side of the timeline */
+.timeline-item:nth-of-type(even) {
+  left: 50%;
+}
+
+/* Orange circle connector on the center line for each item */
+.timeline-item::before {
+  content: "";
+  position: absolute;
+  top: 30px;
+  width: 20px;
+  height: 20px;
+  background: #e67e22;
+  border-radius: 50%; /* Makes it a circle */
+}
+
+/* Positions the circle on the right edge of left-side items */
+.timeline-item:nth-of-type(odd)::before {
+  right: -10px;
+}
+
+/* Positions the circle on the left edge of right-side items */
+.timeline-item:nth-of-type(even)::before {
+  left: -10px;
+}
+
+/* White card inside each timeline item holding the tip text */
+.timeline-content {
+  background: white;
+  padding: 25px;
+  border-radius: 20px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+  transition: 0.3s;
+}
+
+/* Lifts content box slightly on hover */
+.timeline-content:hover {
+  transform: translateY(-5px);
+}
+
+/* Orange tip heading */
+.timeline-content h3 {
+  margin-bottom: 10px;
+  color: #e67e22;
+}
+
+/* Collapses the two-column timeline into a single left-aligned column  */
+@media (max-width: 900px) {
+   /* Moves the vertical line to the far left */
+  .timeline::before {
+    left: 20px;
+  }
+  /* All items go full width and align to the left */
+  .timeline-item {
+    width: 100%;
+    left: 0 !important; /* Overrides the nth-of-type left/right positioning */
+    padding-left: 60px; /* Leaves room for the left-side circle dot */
+    padding-right: 20px;
+  }
+
+   /* Moves all circles to align with the left-side line */
+  .timeline-item::before {
+    left: 10px !important;
+    right: auto;
+  }
+}
+
+/* =========================contact.html========================= */
+
+.contact-section {
+  padding: 50px 20px 100px;
+}
+
+/* Centers the form and limits its width for readability */
+.contact-form {
+  max-width: 700px;
+  margin: auto; /* Centers the form horizontally on the page */
+}
+
+/* Groups all form fields together inside a styled bordered box */
+fieldset {
+  border: 2px solid #e67e22;
+  border-radius: 20px;
+  padding: 40px;
+  background: white;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1); 
+}
+
+/* Label displayed at the top edge of the fieldset border */
+legend {
+  padding: 0 15px; /* Adds space around text so it sits over the border cleanly */
+  font-size: 22px;
+  font-weight: bold;
+  color: #e67e22;
+}
+
+/* Labels Styles each form field label — displayed as block so it
+   sits on its own line above the input */
+.contact-form label {
+  display: block;
+  margin-top: 20px; /* Adds space between each label/input pair */
+  margin-bottom: 10px;
+  font-weight: bold;
+}
+
+/* Shared styles applied to all text inputs and the message textarea */
+.contact-form input,
+.contact-form textarea {
+  width: 100%;  /* Stretches to fill the full form width */
+  padding: 15px;
+  border: 1px solid #dcdde1;
+  border-radius: 10px;
+  font-size: 16px;
+  transition: 0.3s; /* Smooth border and shadow change on focus */
+}
+
+/* Highlights the active input field with an orange border and glow —
+   triggered when the user clicks into a field  */
+.contact-form input:focus,
+.contact-form textarea:focus {
+  outline: none; /* Removes default browser focus ring */
+  border-color: #e67e22;
+  box-shadow: 0 0 10px rgba(230,126,34,0.3);
+}
+
+/* Styles the gray hint text shown inside empty input fields
+   Uses ::placeholder pseudo-element */
+.contact-form input::placeholder,
+.contact-form textarea::placeholder {
+  color: #999;
+}
+
+/* Button Full-width orange pill-shaped button at the bottom of the form */
+.contact-form button {
+  margin-top: 30px;
+  width: 100%;
+  padding: 15px;
+  border: none;
+  border-radius: 30px;
+  background: #e67e22;
+  color: white;
+  font-size: 18px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+/* Darkens button and lifts it upward on hover */
+.contact-form button:hover {
+  background: #d35400;
+  transform: translateY(-3px);
+}
+
+/* Selection */
+::selection {
+  background: #e67e22;
+  color: white;
+}
+
+/* Responsive: Reduces fieldset padding on small screens to prevent overflow */
+@media (max-width: 600px) {
+  fieldset {
+    padding: 25px;
+  }
+}
