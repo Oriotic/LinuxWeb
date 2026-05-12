@@ -2,7 +2,7 @@
 const button = document.querySelector(".hero-btn");
 if (button) {
   // Displays welcome popup on click
-  button.addEventListener("click", () => {
+  button.addEventListener("click", function() {
     alert("Welcome to LinuxWeb!");
   });
 }
